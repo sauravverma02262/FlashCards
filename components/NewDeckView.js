@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 import { connect } from 'react-redux'
-import { gray, white, red, purple, black } from '../utils/colors'
+import { gray, white, red, purple, black, teal, transparent } from '../utils/colors'
 import t from 'tcomb-form-native';
 import { NavigationActions } from 'react-navigation'
 import { addDeck } from '../store/actions'
@@ -10,10 +10,10 @@ import _ from 'lodash'
 const stylesheet = _.cloneDeep(t.form.Form.stylesheet);
 
 // overriding the text color
-stylesheet.textbox.normal.color = '#00FF00';
-stylesheet.textbox.normal.borderColor = 'transparent';
+stylesheet.textbox.normal.color = teal;
+stylesheet.textbox.normal.borderColor = transparent;
 stylesheet.textbox.normal.borderRadius = 0;
-stylesheet.textbox.normal.borderBottomColor = '#000';
+stylesheet.textbox.normal.borderBottomColor = black;
 
 
 

@@ -56,41 +56,41 @@ class QuizView extends Component {
 	}
 
 	render(){
+		const {questionNo, correct} = this.state
+		const {deck} = this.props
 		return (
-	      <View >
-	      	{ this.state.questionNo <= this.props.deck.questions.length 
-	      	?
-		      	<QuizQA 
-		      		question={this.state.questionNo <= this.props.deck.questions.length &&
-		      					 this.props.deck.questions[this.state.questionNo - 1].question}
-		      		answer={this.state.questionNo <= this.props.deck.questions.length &&
-		      					this.props.deck.questions[this.state.questionNo - 1].answer}
-		      		answeredCorrectly={this.answeredCorrectly}
-		      		answeredIncorrectly={this.answeredIncorrectly}
-		      		questionNumber={this.state.questionNo}
-		      		questions={this.props.deck.questions.length}/>
-		    :
-		    <View style={styles.column}>
-					<View style={styles.item}>
-						<Text style={{fontSize: 16, color: red}}>Your score!</Text>
-						{this.props.deck && <Text style={{fontSize: 32, marginTop: 20}}>Quiz Deck: {this.props.deck.title}</Text>}
-						<Text style={{ color: gray, marginTop: 20, fontSize: 38}}>{this.state.correct * 10}/{this.props.deck.questions.length * 10}</Text>
-					</View>
-					<View style={styles.item}>
-						<TouchableOpacity
-							style={[styles.submitBtn, {backgroundColor: red}]}
-							onPress={this.onDone} >
-							<Text style={{color: white}}>Back to Deck</Text>
-					  </TouchableOpacity> 
-						<TouchableOpacity
-							style={[styles.submitBtn, {backgroundColor: red}]}
-							onPress={this.onRestart} >
-							<Text style={{color: white}}>Restart Quiz</Text>
-					  </TouchableOpacity> 
-				  </View>
-		    </View>
-			}
-	      </View>
+	      <View>
+					{ questionNo <= deck.questions.length
+						? <QuizQA
+								question={questionNo <= deck.questions.length &&
+								deck.questions[questionNo - 1].question}
+								answer={questionNo <= deck.questions.length &&
+								deck.questions[questionNo - 1].answer}
+								answeredCorrectly={this.answeredCorrectly}
+								answeredIncorrectly={this.answeredIncorrectly}
+								questionNumber={questionNo}
+								questions={deck.questions.length}/>
+						: <View style={styles.column}>
+								<View style={styles.item}>
+									<Text style={{fontSize: 16, color: red}}>Your score!</Text>
+									{deck && <Text style={{fontSize: 32, marginTop: 20}}>Quiz Deck: {deck.title}</Text>}
+									<Text style={{ color: gray, marginTop: 20, fontSize: 38}}>{correct}/{deck.questions.length}</Text>
+								</View>
+								<View style={styles.item}>
+									<TouchableOpacity
+										style={[styles.submitBtn, {backgroundColor: red}]}
+										onPress={this.onDone} >
+										<Text style={{color: white}}>Back to Deck</Text>
+									</TouchableOpacity>
+									<TouchableOpacity
+										style={[styles.submitBtn, {backgroundColor: red}]}
+										onPress={this.onRestart} >
+										<Text style={{color: white}}>Restart Quiz</Text>
+									</TouchableOpacity>
+								</View>
+						</View>
+					}
+	    </View>
 		)
 	}
 }

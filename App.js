@@ -17,7 +17,6 @@ function AppStatusBar ({backgroundColor, ...props}) {
 
 export default class App extends Component {
   componentDidMount(){
-    clearLocalNotification()
     setLocalNotification()
   }
   render() {

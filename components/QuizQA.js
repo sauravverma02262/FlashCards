@@ -43,7 +43,7 @@ class QuizQA extends Component {
             <TouchableOpacity
               style={[styles.submitBtn, {backgroundColor: green, width: 300}]}
               onPress={() => this.setState({display: "answer"})}>
-              <Text style={{color:white}}>Answer...</Text>
+              <Text style={{color:white}}>Answer</Text>
             </TouchableOpacity>  
           </View>
           :
